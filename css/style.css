@@ -241,7 +241,7 @@ section {
 
 .s-icons i {
     font-size: 32px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 
 }
 
@@ -249,7 +249,7 @@ section {
     font-size: 24px;
     font-weight: 600;
     color: var(--text-color);
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .box p {
@@ -543,4 +543,9 @@ form textarea {
     .navlist.open{
         top: 100%;
     }
+}
+
+.bx-edit-alt {
+    padding-top: 10px;
+    padding-bottom: 11px;
 }
