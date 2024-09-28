@@ -27,18 +27,16 @@ body {
 }
 
 header {
-    position: relative;
-    width: 100%;
-    top: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1000; 
+    background: var(--bg-color); 
     padding: 22px 15%;
     border-bottom: 1px solid transparent;
     transition: all .45s ease;
+    left: 50%; 
+    transform: translateX(-50%); /* Centraliza o menu em relação à página */
 }
 
 .logo {
@@ -54,6 +52,7 @@ span {
 
 .navlist {
     display: flex;
+    justify-content: center;
 }
 
 .navlist a {
@@ -198,10 +197,11 @@ section {
 .about-text p {
     color: var(--second-color);
     font-size: var(--p-font);
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.8;
     margin-bottom: 4rem;
     text-align: justify;
+    padding-right: 50px;
 }
 
 .services {
@@ -346,6 +346,8 @@ section {
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     gap: 2.5rem;
+    padding-top: 1px;
+    padding-bottom: 1px;
 }
 
 .contact-text h4 {
@@ -408,40 +410,27 @@ section {
     color: var(--main-color);
 }
 
-.contact-form form {
-    position: relative;
+.contact {
+    background: var(--second-bg-color);
+    display: grid;
+    grid-template-columns: 1fr auto; 
+    align-items: center;
+    gap: 2.5rem;
 }
 
-.contact-form form input,
-form textarea {
-    width: 100%;
-    padding: 14px;
-    background: var(--bg-color);
-    color: var(--text-color);
-    border: none;
-    outline: none;
-    font-size: 15px;
-    border-radius: 8px;
-    margin-bottom: 10px;
+.qrcode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px; 
+    height: 500px;
+    padding-bottom: 50px;
 }
 
-.contact-form textarea {
-    resize: none;
-    height: 240px;
-}
-
-.contact-form .submit {
-    display: inline-block;
-    font-size: 16px;
-    background: var(--main-color);
-    color: var(--text-color);
-    width: 160px;
-    transition: all .45s ease;
-}
-
-.contact-form .submit:hover {
-    transform: scale(1.1);
-    cursor: pointer;
+.qrcode img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; 
 }
 
 .end {
@@ -449,23 +438,33 @@ form textarea {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; 
     gap: 2rem;
     background: var(--bg-color);
 }
 
-.last-text p {
-    color: var(--second-color);
-    font-size: 14px;
+.last-text {
+    flex: 1; 
+    text-align: center; 
+    font-weight: bold;
+    font-size: 11px;
+    font-family: 'Poppins', sans-serif;
+}
 
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 20px;
+    bottom: 20px; 
 }
 
 .top i {
     padding: 10px;
     border-radius: 8px;
     font-size: 15px;
-    color: var(--text-color);
-    background: var(--main-color);
+    color: #fff;
+    background:#080800;
 }
 
 @media (max-width: 1480px) {
@@ -549,3 +548,336 @@ form textarea {
     padding-top: 10px;
     padding-bottom: 11px;
 }
+
+.portfolio-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.portfolio-button .btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--main-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.portfolio-button .btn:hover {
+    background-color: #f20587cc;
+}
+
+.portfolio-content-detalhado {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    align-items: center;
+    gap: 2.5rem;
+    margin-top: 5rem;
+}
+
+.row {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.row img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.layer {
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgb(0, 0, 0));
+    position: absolute;
+    border-radius: 8px;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 50px;
+    transition: height 0.5s;
+    color: white;
+}
+
+.layer h5 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    margin-top: 80px;
+}
+
+.layer p {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.layer i {
+    color: var(--main-color);
+    margin-top: 20px;
+    font-size: 20px;
+    background: var(--text-color);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.row:hover img {
+    transform: scale(1.1);
+}
+
+.row:hover .layer {
+    height: 100%;
+}
+
+.submenu {
+    text-align: center;
+    margin: 40px 0 20px;
+}
+
+.submenu div {
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+}
+
+.submenu button {
+    background-color: #000000; 
+    color: #ffffff; 
+    border: 2px solid #000000; 
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 25px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    cursor: pointer;
+    transition: all 0.3s ease; 
+}
+
+.submenu button:hover {
+    background-color: #f1399e; 
+    color: #fff; 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
+}
+
+.submenu button:focus, 
+.submenu button.active {
+    background-color: #000000; 
+    color: #fff;
+    outline: none; 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
+}
+
+/* Grade para os Cards */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 300px; 
+    margin-top: 80px; 
+    padding: 0 15px;
+}
+
+/* Estilo dos Cards */
+.card {
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-content {
+    padding: 60px;
+}
+
+.card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: var(--second-color);
+    margin-bottom: 20px;
+}
+
+.card .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.card .btn:hover {
+    background-color: #f20587cc;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Apenas 1 coluna em telas menores */
+    }
+}
+
+.card img {
+    width: 100%; 
+    height: 250px;
+    object-fit: cover; 
+    border-radius: 8px; 
+    
+}
+
+.grid-container {
+    display: grid;
+    grid-gap: 50px;
+    padding: 50px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 65px;
+}
+
+.card-content h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.card-content .btn {
+    padding: 7px 12px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    border: 1px solid #0e0d0d; 
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.card-content .btn:hover {
+    background-color: #d6becbcc;
+}
+
+.grid-container {
+    display: grid;
+    grid-gap: 20px;
+    padding: 50px;
+}
+
+/* colunas e linhas para Projetos T.I. */
+#projetos-ti {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+}
+
+#fotografia {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+/* colunas e linha para Design */
+#design {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, auto);
+}
+
+/* Estilo para os cards e grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.portfolio-button {
+    margin-top: 50px; 
+}
+
+.portfolio-button .btn {
+    background-color: #000000; 
+    color: #ffffff; 
+    border: 2px solid #000000; 
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 25px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    text-align: center;
+    text-decoration: none; 
+}
+
+.portfolio-button .btn:hover {
+    background-color: #f1399e; 
+    color: #fff; 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
+}
+
