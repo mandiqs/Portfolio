@@ -36,7 +36,7 @@ header {
     border-bottom: 1px solid transparent;
     transition: all .45s ease;
     left: 50%; 
-    transform: translateX(-50%); /* Centraliza o menu em relação à página */
+    transform: translateX(-50%); 
 }
 
 .logo {
@@ -750,7 +750,7 @@ section {
 /* Responsividade */
 @media (max-width: 768px) {
     .grid-container {
-        grid-template-columns: 1fr; /* Apenas 1 coluna em telas menores */
+        grid-template-columns: 1fr; 
     }
 }
 
